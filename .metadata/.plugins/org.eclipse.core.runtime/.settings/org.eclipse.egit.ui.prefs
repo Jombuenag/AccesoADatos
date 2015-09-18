@@ -1,0 +1,3 @@
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Commit sin comentario de bienvenida&\#x0A;</message>\r\n<message>Commit desde el ordenador formateado.&\#x0A;&\#x0A;Los cambios son\: &\#x0A;&\#x0A;-Quitado texto de bienvenida.&\#x0A;</message>\r\n<message>Recommit desde el odenador formateado.</message>\r\n</messages>
+eclipse.preferences.version=1
+show_initial_config_dialog=false
