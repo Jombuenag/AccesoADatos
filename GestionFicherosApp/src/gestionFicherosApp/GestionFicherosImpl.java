@@ -115,8 +115,39 @@ public class GestionFicherosImpl implements GestionFicheros {
 
 	@Override
 	public String getInformacion(String arg0) throws GestionFicherosException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		StringBuilder strBuilder = new StringBuilder();
+		File file = new File(carpetaDeTrabajo, arg0);
+		
+		strBuilder.append(" ---INFORMACIÓN DEL SISTEMA--- ");
+		strBuilder.append("\n\n");
+//		AQUI NOS DIRÁ EL NOMBRE DEL ARCHIVO O CARPETA
+		strBuilder.append("NOMBRE: ");
+		strBuilder.append(arg0);
+		strBuilder.append("\n");
+//		AQUI SI ES DIRECTORIO O ARCHIVO
+		strBuilder.append("TIPO: ");
+		if(file.isDirectory()){
+			strBuilder.append("Directorio");
+		}
+		if(file.isFile()){
+			strBuilder.append("Archivo");
+		}
+		strBuilder.append("\n");
+//		¿DONDE ESTÁ?
+		strBuilder.append("UBICACIÓN: ");
+		strBuilder.append(file.getAbsolutePath().toString());
+		strBuilder.append("\n");
+//		VEAMOS SI ESTÁ OCULTO O NO
+		strBuilder.append("OCULTO: ");
+		strBuilder.append(file.isHidden());
+		
+		
+		
+		
+		
+		return strBuilder.toString();
 	}
 
 	@Override

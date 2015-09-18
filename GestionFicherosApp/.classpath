@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/Takuma/Desktop/Curso/Acceso a Datos/1-Clase File/Archivos descargados/1a_1b/GestionFicherosBase.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Takuma/Desktop/Curso/Acceso a Datos/1-Clase File/Archivos descargados/1a_1b/GestionFicherosIGU.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/Desktop/Curso/Acceso a Datos/Ejercicios/1a_1b/GestionFicherosBase.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/Desktop/Curso/Acceso a Datos/Ejercicios/1a_1b/GestionFicherosIGU.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
