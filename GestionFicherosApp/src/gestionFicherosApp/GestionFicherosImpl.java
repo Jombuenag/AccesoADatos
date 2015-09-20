@@ -6,6 +6,7 @@ import gestionficheros.GestionFicherosException;
 import gestionficheros.TipoOrden;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 
 public class GestionFicherosImpl implements GestionFicheros {
 	private File carpetaDeTrabajo = null;
@@ -128,12 +129,12 @@ public class GestionFicherosImpl implements GestionFicheros {
 		strBuilder.append("\n");
 //		AQUI SI ES DIRECTORIO O ARCHIVO
 		strBuilder.append("TIPO: ");
-		if(file.isDirectory()){
-			strBuilder.append("Directorio");
-		}
-		if(file.isFile()){
-			strBuilder.append("Archivo");
-		}
+			if(file.isDirectory()){
+				strBuilder.append("Directorio");
+			}
+			if(file.isFile()){
+				strBuilder.append("Archivo");
+			}
 		strBuilder.append("\n");
 //		¿DONDE ESTÁ?
 		strBuilder.append("UBICACIÓN: ");
@@ -141,12 +142,32 @@ public class GestionFicherosImpl implements GestionFicheros {
 		strBuilder.append("\n");
 //		VEAMOS SI ESTÁ OCULTO O NO
 		strBuilder.append("OCULTO: ");
-		strBuilder.append(file.isHidden());
-		
-		
-		
-		
-		
+		if(file.isHidden()){
+			strBuilder.append(" Si "+"\n");
+		}else{
+			strBuilder.append(" No "+"\n");
+		}
+//		¿CUANDO FUE LA ULTIMA MODIFICACIÓN?
+//		PRIMERO NECESITAMOS DAR FORMATO A LA FECHA TAL COMO REQUIERA LA APLICACIÓN
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+		strBuilder.append("ULTIMA MODIFICACIÓN: ");
+		strBuilder.append(sdf.format(file.lastModified()));		
+		strBuilder.append("\n");
+//		VEAMOS QUE ESPACIO HAY TOTAL / DISPONIBLE / USABLE. (SE REPRESENTARÁ EN BYTES)
+		strBuilder.append("ESPACIO TOTAL : ");
+		strBuilder.append(file.getTotalSpace()+" bytes");
+		strBuilder.append("\n");
+		strBuilder.append("ESPACIO DISPONIBLE : ");
+		strBuilder.append(file.getFreeSpace()+" bytes");
+		strBuilder.append("\n");
+		strBuilder.append("ESPACIO USABLE : ");
+		strBuilder.append(file.getUsableSpace()+" bytes");
+		strBuilder.append("\n");
+		try{
+			
+		}catch(SecurityException sError){
+			System.err.println("Por seguridad no puede ver esta información" + sError.getMessage());
+		}
 		return strBuilder.toString();
 	}
 
