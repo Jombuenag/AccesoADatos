@@ -16,8 +16,6 @@ public class GestionFicherosImpl implements GestionFicheros {
 	private FormatoVistas formatoVistas = FormatoVistas.NOMBRES;
 	private TipoOrden ordenado = TipoOrden.DESORDENADO;
 	
-
-	
 	
 	public GestionFicherosImpl(){
 		carpetaDeTrabajo = File.listRoots()[0];
@@ -55,13 +53,14 @@ public class GestionFicherosImpl implements GestionFicheros {
 
 	@Override
 	public void creaCarpeta(String arg0) throws GestionFicherosException {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void creaFichero(String arg0) throws GestionFicherosException {
-		// TODO Auto-generated method stub
+
+		
 		
 	}
 
@@ -119,8 +118,17 @@ public class GestionFicherosImpl implements GestionFicheros {
 		
 		
 		StringBuilder strBuilder = new StringBuilder();
-		File file = new File(carpetaDeTrabajo, arg0);
 		
+		File file = new File(carpetaDeTrabajo, arg0);
+//		EN CASO DE QUE FILE NO TENGA PERMISOS DE LECTURA LANZARÁ LA EXCEPCIÓN
+		if (!file.canRead()){
+			throw new GestionFicherosException("El fichero no tiene permisos de lectura.");
+		}
+//		POR OTRO LADO SI NO EXISTE LANZARÁ LA MISMA EXCEPCION
+		if(!file.exists()){
+			throw new GestionFicherosException("El fichero al que intenta acceder no existe.");
+		}
+			
 		strBuilder.append(" ---INFORMACIÓN DEL SISTEMA--- ");
 		strBuilder.append("\n\n");
 //		AQUI NOS DIRÁ EL NOMBRE DEL ARCHIVO O CARPETA
@@ -153,7 +161,17 @@ public class GestionFicherosImpl implements GestionFicheros {
 		strBuilder.append("ULTIMA MODIFICACIÓN: ");
 		strBuilder.append(sdf.format(file.lastModified()));		
 		strBuilder.append("\n");
+//		¿QUE TAMAÑO TIENE EL ARCHIVO?
+		strBuilder.append("TAMAÑO: ");
+		if(file.isFile()){
+		strBuilder.append(file.length()+" bytes");
+		strBuilder.append("\n");
+		}
 //		VEAMOS QUE ESPACIO HAY TOTAL / DISPONIBLE / USABLE. (SE REPRESENTARÁ EN BYTES)
+		
+		if(file.isDirectory()){
+		strBuilder.append(file.list().length + " Archivos");
+		strBuilder.append("\n");
 		strBuilder.append("ESPACIO TOTAL : ");
 		strBuilder.append(file.getTotalSpace()+" bytes");
 		strBuilder.append("\n");
@@ -163,10 +181,6 @@ public class GestionFicherosImpl implements GestionFicheros {
 		strBuilder.append("ESPACIO USABLE : ");
 		strBuilder.append(file.getUsableSpace()+" bytes");
 		strBuilder.append("\n");
-		try{
-			
-		}catch(SecurityException sError){
-			System.err.println("Por seguridad no puede ver esta información" + sError.getMessage());
 		}
 		return strBuilder.toString();
 	}
