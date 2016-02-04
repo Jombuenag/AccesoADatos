@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="src/|lib/" kind="src" path=""/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/hibernate-core-5.0.6.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/jandex-2.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Takuma/workspace/almacen7a/lib/mysql-connector-java-5.1.31-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
